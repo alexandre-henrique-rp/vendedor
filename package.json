@@ -1,0 +1,19 @@
+{
+  "name": "vendedor",
+  "version": "1.0.0",
+  "main": "main.js",
+  "license": "MIT",
+  "author": "Alexandre H",
+  "private": false,
+  "description": "app frente de caixa",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder"
+  },
+  "devDependencies": {
+    "electron": "^34.1.1"
+  },
+  "dependencies": {
+    "sqlite3": "^5.1.7"
+  }
+}
