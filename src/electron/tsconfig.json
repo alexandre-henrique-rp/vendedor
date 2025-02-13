@@ -1,0 +1,15 @@
+{ 
+  //explique cada propriedade 
+  "compilerOptions": {
+    // target: versão do ecma script que vai ser usada
+    "target": "ESNext",
+    //modulo: qual o ecma script que vai ser usado como modulo
+    "module": "NodeNext",
+    //strict: tipo de verificação(null-save)
+    "strict": true,
+    //outDir: onde vai ser salvo os arquivos
+    "outDir": "../../dist-electron",
+    //skipLibCheck: ignora a verificação
+    "skipLibCheck": true
+  }
+}

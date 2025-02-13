@@ -1,0 +1,17 @@
+{
+  "appId": "com.n-ziermann.electron-course",
+  "files": ["dist-electron", "dist-react"],
+  "icon": "./logo.png",
+  "productName": "Vendedor",
+  "copyright": "Copyright © 2025",
+  "mac": {
+    "target": "dmg"
+  },
+  "linux": {
+    "target": "deb",
+    "category": "Utility"
+  },
+  "win": {
+    "target": ["portable", "msi"]
+  }
+}
