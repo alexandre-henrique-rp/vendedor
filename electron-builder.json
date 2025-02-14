@@ -1,6 +1,7 @@
 {
   "appId": "com.n-ziermann.electron-course",
   "files": ["dist-electron", "dist-react"],
+  "extraResources": ["dist-electron/preload.cjs"],
   "icon": "./logo.png",
   "productName": "Vendedor",
   "copyright": "Copyright © 2025",
@@ -8,7 +9,7 @@
     "target": "dmg"
   },
   "linux": {
-    "target": "deb",
+    "target": [ "deb", "AppImage" ],
     "category": "Utility"
   },
   "win": {

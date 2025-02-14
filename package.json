@@ -11,8 +11,9 @@
   },
   "homepage": "https://github.com/kingdevtec/electron-react",
   "scripts": {
+    "dev": "concurrently \"yarn dev:electron\" \"yarn dev:react\"",
     "dev:react": "vite",
-    "dev:electron": "electron .",
+    "dev:electron": "yarn transpile:electron; cross-env NODE_ENV=development electron .",
     "build": "tsc -b && vite build",
     "transpile:electron": "tsc --project src/electron/tsconfig.json",
     "dist:mac": "yarn transpile:electron && yarn build && electron-builder --mac --arm64",
@@ -22,6 +23,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "cross-env": "^7.0.3",
+    "os-utils": "^0.0.14",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "sequelize": "^6.37.5",
@@ -29,9 +32,11 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.19.0",
+    "@types/os-utils": "^0.0.4",
     "@types/react": "^19.0.8",
     "@types/react-dom": "^19.0.3",
     "@vitejs/plugin-react": "^4.3.4",
+    "concurrently": "^9.1.2",
     "electron": "^34.1.1",
     "electron-builder": "^25.1.8",
     "eslint": "^9.19.0",
