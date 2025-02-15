@@ -1,8 +1,7 @@
-import { BrowserWindow, app } from "electron";
-import path from "path";
+import { BrowserWindow, app, ipcMain } from "electron";
 import { IsDev } from "./util.js";
-import { pollResources } from "./resourceManeger.js";
-import { getPreloadPath } from "./pathResolver.js";
+import { getStaticData, pollResources } from "./resourceManeger.js";
+import { getPreloadPath, getUiPath } from "./pathResolver.js";
 
 app.on("ready", () => {
   const win = new BrowserWindow({
@@ -14,13 +13,17 @@ app.on("ready", () => {
   if (IsDev()) {
     win.loadURL("http://localhost:3000");
   } else {
-    win.loadFile(path.join(app.getAppPath(), "/dist-react/index.html"));
+    win.loadFile(getUiPath());
   }
   pollResources(win);
+
+  ipcMain.handle("ping", () => {
+    return getStaticData();
+  });
+
+  handleGetStaticData(() => getStaticData())
 });
 
-app.on("window-all-closed", () => {
-  if (process.platform !== "darwin") {
-    app.quit();
-  }
-});
+function handleGetStaticData(callback: () => StaticData) {
+  ipcMain.handle("getStaticData", callback);
+}

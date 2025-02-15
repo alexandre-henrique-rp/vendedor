@@ -10,6 +10,8 @@
     //outDir: onde vai ser salvo os arquivos
     "outDir": "../../dist-electron",
     //skipLibCheck: ignora a verificação
-    "skipLibCheck": true
+    "skipLibCheck": true,
+
+    "types": ["../../types"],
   }
 }
